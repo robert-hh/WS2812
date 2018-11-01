@@ -9,7 +9,7 @@ Neopixel  display.It is dedicated to Pycom devices
 
 - pin is the name of a GPIO pin, which can work as an output. The type of the
 argument must be string.
-- channel is the RMT channel to be used. Suitable values are 2 and 3.
+- channel is the RMT channel to be used. Valid values are 2 and 3.
 
 ## Method
 
@@ -22,13 +22,14 @@ See also the example below.
 
 ## Interface
 
-The WS2812 is connected to the RMT module. Only a single pin besides Vcc and GND is required.
+The WS2812 is connected to the RMT module. Only a single data pin besides Vcc
+and GND is required.
 
-The WS2812 need a Vcc of 5V. The data line of the WS2812 can be driven by the
+The WS2812 needs a Vcc of 5V. The data line of the WS2812 can be driven by the
 output of the Pycom module, even at the limits of the spec. If the level is too
-low, add a level converter with a bandwidth of >10 MHz between the GPIO pin of the
+low, add a level converter with a bandwidth of >5 MHz between the GPIO pin of the
 PyCom device and the WS2812 data input. You may also drive the WS2812 with a
-somewhat lower voltage, like ~4V.
+somewhat lower voltage, like ~4.3V.
 
 ## Example
 
@@ -62,4 +63,5 @@ while True:
     ws2812.show(data)
     sleep(1)
     ws2812.show(blank)
-    sleep(1)```
+    sleep(1)
+```
